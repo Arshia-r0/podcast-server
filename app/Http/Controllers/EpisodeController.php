@@ -20,27 +20,27 @@ class EpisodeController extends Controller
     public function show(): JsonResponse
     {
        return response()->json([
-           "01" => "part 1",
-           "02" => "part 2",
-           "03" => "part 3",
-           "04" => "part 4",
-           "05" => "part 5",
-           "06" => "part 6",
-           "07" => "part 7",
-           "08" => "part 8",
-           "09" => "part 9",
+           "1" => "part 1",
+           "2" => "part 2",
+           "3" => "part 3",
+           "4" => "part 4",
+           "5" => "part 5",
+           "6" => "part 6",
+           "7" => "part 7",
+           "8" => "part 8",
+           "9" => "part 9",
            "10" => "part 10",
            "11" => "part 11",
            "12" => "part 12",
        ]);
     }
 
-    public function getPath(string $bookId, string $episodeId): string
+    public function getPath(int $bookId, int $episodeId): string
     {
         return storage_path("/" . $bookId . "/ ". "adventureholmes_" . $episodeId . "_doyle_64kb.mp3");
     }
 
-    public function listen(string $bookId, string $episodeId): BinaryFileResponse
+    public function listen(int $bookId, int $episodeId): BinaryFileResponse
     {
         return new BinaryFileResponse(
             $this->getPath($bookId, $episodeId)
