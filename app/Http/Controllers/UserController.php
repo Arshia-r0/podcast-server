@@ -17,7 +17,7 @@ class UserController extends Controller
             "password" => "required"
         ]);
 
-        $user = User::where("user_name", $credentials["user_name"])->first();
+        $user = User::where("username", $credentials["user_name"])->first();
 
         if (!$user || !Hash::check($credentials["password"], $user->password)) {
             return response()->json([
