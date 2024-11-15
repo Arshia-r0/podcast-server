@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -17,7 +17,7 @@ class UserController extends Controller
             "password" => "required"
         ]);
 
-        $user = User::where("username", $credentials["user_name"])->first();
+        $user = User::where("user_name", $credentials["user_name"])->first();
 
         if (!$user || !Hash::check($credentials["password"], $user->password)) {
             return response()->json([
@@ -40,7 +40,7 @@ class UserController extends Controller
     function register(Request $request): JsonResponse
     {
         $registerUserData = $request->validate([
-            'user_name' => 'required|string|unique:users',
+            'user_name' => 'required|unique:users',
             'password' => 'required|min:8'
         ]);
         $user = User::create([
