@@ -10,9 +10,12 @@ class EpisodeController extends Controller
     public function index(): JsonResponse
     {
         return response()->json([
-            '1' => [
+            "books" => [
+                [
+                'book_id' => 1,
                 'name' => 'sherlock holmes 1',
-                'episode_count' => "12",
+                'episode_count' => 12
+                ],
             ]
         ]);
     }
@@ -20,18 +23,20 @@ class EpisodeController extends Controller
     public function show(): JsonResponse
     {
        return response()->json([
-           "1" => "part 1",
-           "2" => "part 2",
-           "3" => "part 3",
-           "4" => "part 4",
-           "5" => "part 5",
-           "6" => "part 6",
-           "7" => "part 7",
-           "8" => "part 8",
-           "9" => "part 9",
-           "10" => "part 10",
-           "11" => "part 11",
-           "12" => "part 12",
+           'episodes' => [
+               "1" => "part 1",
+               "2" => "part 2",
+               "3" => "part 3",
+               "4" => "part 4",
+               "5" => "part 5",
+               "6" => "part 6",
+               "7" => "part 7",
+               "8" => "part 8",
+               "9" => "part 9",
+               "10" => "part 10",
+               "11" => "part 11",
+               "12" => "part 12",
+           ],
        ]);
     }
 
