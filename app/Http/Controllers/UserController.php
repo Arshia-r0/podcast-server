@@ -53,4 +53,10 @@ class UserController extends Controller
         ]);
     }
 
+    function show(User $user): JsonResponse
+    {
+        return response()->json([
+            "username" => $user->user_name
+        ]);
+    }
 }
