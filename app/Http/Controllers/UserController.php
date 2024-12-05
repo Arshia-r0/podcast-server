@@ -40,8 +40,8 @@ class UserController extends Controller
     function register(Request $request): JsonResponse
     {
         $registerUserData = $request->validate([
-            'user_name' => 'required|unique:users',
-            'password' => 'required|min:8'
+            'user_name' => 'bail|required|unique:users',
+            'password' => 'bail|required|min:8'
         ]);
         $user = User::create([
             'user_name' => $registerUserData['user_name'],
