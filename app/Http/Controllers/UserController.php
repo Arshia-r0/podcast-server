@@ -13,7 +13,7 @@ class UserController extends Controller
     function login(Request $request): JsonResponse
     {
         $credentials = $request->validate([
-            "username" => "required",
+            "username" => "bail|required|exists:users,username",
             "password" => "required"
         ]);
 
@@ -49,14 +49,14 @@ class UserController extends Controller
         ]);
         return response()->json([
             'message' => 'Registered successfully.',
-            "access_token" => $user->createToken($user->name . "-AuthToken")->plainTextToken
+            "access_token" => $user->createToken($user->username . "-AuthToken")->plainTextToken
         ]);
     }
 
-    function show(User $user): JsonResponse
+    function show(): JsonResponse
     {
         return response()->json([
-            "username" => $user->user_name
+            "username" => auth()->user()->username
         ]);
     }
 }
