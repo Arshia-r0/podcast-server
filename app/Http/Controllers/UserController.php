@@ -13,11 +13,11 @@ class UserController extends Controller
     function login(Request $request): JsonResponse
     {
         $credentials = $request->validate([
-            "user_name" => "required",
+            "username" => "required",
             "password" => "required"
         ]);
 
-        $user = User::where("user_name", $credentials["user_name"])->first();
+        $user = User::where("username", $credentials["username"])->first();
 
         if (!$user || !Hash::check($credentials["password"], $user->password)) {
             return response()->json([
@@ -40,11 +40,11 @@ class UserController extends Controller
     function register(Request $request): JsonResponse
     {
         $registerUserData = $request->validate([
-            'user_name' => 'bail|required|unique:users',
+            'username' => 'bail|required|unique:users',
             'password' => 'bail|required|min:8'
         ]);
         $user = User::create([
-            'user_name' => $registerUserData['user_name'],
+            'username' => $registerUserData['username'],
             'password' => Hash::make($registerUserData['password']),
         ]);
         return response()->json([
