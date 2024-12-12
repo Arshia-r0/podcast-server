@@ -24,18 +24,18 @@ class EpisodeController extends Controller
     {
        return response()->json([
            'episodes' => [
-               "1" => "part 1",
-               "2" => "part 2",
-               "3" => "part 3",
-               "4" => "part 4",
-               "5" => "part 5",
-               "6" => "part 6",
-               "7" => "part 7",
-               "8" => "part 8",
-               "9" => "part 9",
-               "10" => "part 10",
-               "11" => "part 11",
-               "12" => "part 12",
+               "part 1",
+               "part 2",
+               "part 3",
+               "part 4",
+               "part 5",
+               "part 6",
+               "part 7",
+               "part 8",
+               "part 9",
+               "part 10",
+               "part 11",
+               "part 12",
            ],
        ]);
     }
