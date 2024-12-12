@@ -24,18 +24,18 @@ class EpisodeController extends Controller
     {
        return response()->json([
            'episodes' => [
-               "chapter 1",
-               "chapter 2",
-               "chapter 3",
-               "chapter 4",
-               "chapter 5",
-               "chapter 6",
-               "chapter 7",
-               "chapter 8",
-               "chapter 9",
-               "chapter 10",
-               "chapter 11",
-               "chapter 12",
+               "chapter 1" => "1:05:06",
+               "chapter 2" => "59:06",
+               "chapter 3" => "45:19",
+               "chapter 4" => "53:00",
+               "chapter 5" => "41:19",
+               "chapter 6" => "51:35",
+               "chapter 7" => "41:33",
+               "chapter 8" => "54:17",
+               "chapter 9" => "42:03",
+               "chapter 10" => "44:52",
+               "chapter 11" => "1:00:25",
+               "chapter 12" => "59:24",
            ],
        ]);
     }
