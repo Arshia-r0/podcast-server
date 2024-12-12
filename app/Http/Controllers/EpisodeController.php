@@ -12,9 +12,9 @@ class EpisodeController extends Controller
         return response()->json([
             "books" => [
                 [
-                'book_id' => 1,
-                'name' => 'sherlock holmes 1',
-                'episode_count' => 12
+                    'book_id' => 1,
+                    'name' => 'sherlock holmes 1',
+                    'episode_count' => 12
                 ],
             ]
         ]);
@@ -22,27 +22,62 @@ class EpisodeController extends Controller
 
     public function show(): JsonResponse
     {
-       return response()->json([
-           'episodes' => [
-               "chapter 1" => "1:05:06",
-               "chapter 2" => "59:06",
-               "chapter 3" => "45:19",
-               "chapter 4" => "53:00",
-               "chapter 5" => "41:19",
-               "chapter 6" => "51:35",
-               "chapter 7" => "41:33",
-               "chapter 8" => "54:17",
-               "chapter 9" => "42:03",
-               "chapter 10" => "44:52",
-               "chapter 11" => "1:00:25",
-               "chapter 12" => "59:24",
-           ],
-       ]);
+        return response()->json([
+            "episodes" => [
+            [
+                "name" => "chapter 1",
+                "duration" => "1:05:06"
+            ],
+            [
+                "name" => "chapter 2",
+                "duration" => "59:06",
+            ],
+            [
+                "name" => "chapter 3",
+                "duration" => "45:19",
+            ],
+            [
+                "name" => "chapter 4",
+                "duration" => "53:00",
+            ],
+            [
+                "name" => "chapter 5",
+                "duration" => "41:19",
+            ],
+            [
+                "name" => "chapter 6",
+                "duration" => "51:35",
+            ],
+            [
+                "name" => "chapter 7",
+                "duration" => "41:33",
+            ],
+            [
+                "name" => "chapter 8",
+                "duration" => "54:17",
+            ],
+            [
+                "name" => "chapter 9",
+                "duration" => "42:03",
+            ],
+            [
+                "name" => "chapter 10",
+                "duration" => "44:52",
+            ],
+            [
+                "name" => "chapter 11",
+                "duration" => "1:00:25",
+            ],
+            [
+                "name" => "chapter 12",
+                "duration" => "59:24",
+            ]]]
+        );
     }
 
     public function getPath(int $bookId, int $episodeId): string
     {
-        return storage_path("/" . $bookId . "/ ". "adventureholmes_" . $episodeId . "_doyle_64kb.mp3");
+        return storage_path("/" . $bookId . "/ " . "adventureholmes_" . $episodeId . "_doyle_64kb.mp3");
     }
 
     public function listen(int $bookId, int $episodeId): BinaryFileResponse
