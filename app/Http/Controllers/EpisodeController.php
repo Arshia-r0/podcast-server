@@ -77,7 +77,7 @@ class EpisodeController extends Controller
 
     public function getPath(int $bookId, int $episodeId): string
     {
-        return storage_path("/" . $bookId . "/ " . "adventureholmes_" . $episodeId . "_doyle_64kb.mp3");
+        return storage_path("app/public/" . $bookId . "/" . "adventureholmes_" . $episodeId . "_doyle_64kb.mp3");
     }
 
     public function listen(int $bookId, int $episodeId): BinaryFileResponse

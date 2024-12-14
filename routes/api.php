@@ -15,6 +15,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::group(['prefix' => 'book'], function () {
         Route::get('/', [EpisodeController::class, 'index']);
         Route::get('/{book}', [EpisodeController::class, 'show']);
-        Route::get('/{book}/{episode}', [EpisodeController::class, 'listen']);
     });
 });
+
+Route::get('/book/{book}/{episode}', [EpisodeController::class, 'listen']);
